@@ -1,5 +1,6 @@
 @import "tailwindcss";
+@import "swiper/css";
 
 @theme {
-    --color-primary: #f42619;
+  --color-primary: #f42619;
 }

@@ -9,7 +9,7 @@ interface ButtonProps
 export function Button({ children, isLoading, ...props }: ButtonProps) {
   return (
     <button
-      className="flex not-even:w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm bg-primary px-4 py-3 font-semibold text-white transition-all duration-300 ease-in-out hover:bg-primary/80 disabled:opacity-60"
+      className="flex not-even:w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm bg-primary px-4 py-3 font-semibold text-white transition-all duration-300 ease-in-out hover:bg-primary/80 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:hover:bg-gray-400"
       disabled={props.disabled || isLoading}
       type="submit"
       {...props}
