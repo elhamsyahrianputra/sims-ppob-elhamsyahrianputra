@@ -5,7 +5,7 @@ interface UsePageTitleOptions {
   suffix?: string;
 }
 
-export function usePageTitle({ title, suffix = "SIMS PPOB" }: UsePageTitleOptions) {
+export function usePageTitle({ title, suffix = "SIMS PPOB - Elham Syahrian Putra" }: UsePageTitleOptions) {
   useEffect(() => {
     const fullTitle = suffix ? `${title} | ${suffix}` : title;
     document.title = fullTitle;
