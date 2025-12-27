@@ -9,7 +9,6 @@ export const apiClient = axios.create({
   },
 });
 
-// Interceptor untuk menambahkan token di setiap request
 apiClient.interceptors.request.use(
   (config) => {
     const token = tokenStorage.get();

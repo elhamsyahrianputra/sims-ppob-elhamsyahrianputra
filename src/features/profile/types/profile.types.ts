@@ -5,6 +5,4 @@ export interface Profile {
   profile_image: string;
 }
 
-export interface UpdateImageRequest {
-  file: string;
-}
+export type UpdateImageRequest = FormData;

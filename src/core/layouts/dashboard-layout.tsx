@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import { ProfileCard } from "../../features/profile/components/profile-card";
 import { BalanceCard } from "../../features/transaction/components/balance-card";
-import { Navbar } from "../components/layouts/navbar/header";
+import { Navbar } from "../components/layouts/navbar/navbar";
 
 export default function DashboardLayout() {
   return (

@@ -4,10 +4,12 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import { Button } from "../../../core/components/ui/button";
 import { Input } from "../../../core/components/ui/form";
+import { usePageTitle } from "../../../core/hooks/use-page-title";
 import { useRegister } from "../hooks/use-auth";
 import { type RegisterRequest, registerSchema } from "../schemas/auth-schema";
 
 export default function RegisterPage() {
+  usePageTitle({ title: "Registrasi" });
   const { mutate, isPending } = useRegister();
 
   const {
@@ -35,38 +37,11 @@ export default function RegisterPage() {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-y-6 pt-12">
-          <Input
-            errorMessage={errors.email?.message}
-            icon={AtSign}
-            placeholder="masukkan email anda"
-            {...register("email")}
-          />
-          <Input
-            errorMessage={errors.first_name?.message}
-            icon={User2}
-            placeholder="nama depan"
-            {...register("first_name")}
-          />
-          <Input
-            errorMessage={errors.last_name?.message}
-            icon={User2}
-            placeholder="nama belakang"
-            {...register("last_name")}
-          />
-          <Input
-            errorMessage={errors.password?.message}
-            icon={Lock}
-            placeholder="buat password"
-            {...register("password")}
-            type="password"
-          />
-          <Input
-            errorMessage={errors.confirm_password?.message}
-            icon={Lock}
-            placeholder="konfirmasi password"
-            {...register("confirm_password")}
-            type="password"
-          />
+          <Input errorMessage={errors.email?.message} icon={AtSign} placeholder="masukkan email anda" {...register("email")} />
+          <Input errorMessage={errors.first_name?.message} icon={User2} placeholder="nama depan" {...register("first_name")} />
+          <Input errorMessage={errors.last_name?.message} icon={User2} placeholder="nama belakang" {...register("last_name")} />
+          <Input errorMessage={errors.password?.message} icon={Lock} placeholder="buat password" {...register("password")} type="password" />
+          <Input errorMessage={errors.confirm_password?.message} icon={Lock} placeholder="konfirmasi password" {...register("confirm_password")} type="password" />
         </div>
         <div className="mt-12">
           <Button isLoading={isPending} type="submit">
@@ -77,10 +52,7 @@ export default function RegisterPage() {
       <div className="mt-6">
         <p className="text-center text-gray-400">
           sudah punya akun? login{" "}
-          <Link
-            className="font-semibold text-primary transition-colors duration-300 ease-in-out hover:text-primary/40"
-            to="/login"
-          >
+          <Link className="font-semibold text-primary transition-colors duration-300 ease-in-out hover:text-primary/40" to="/login">
             di sini
           </Link>
         </p>

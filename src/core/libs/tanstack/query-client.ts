@@ -13,8 +13,7 @@ export const queryClient = new QueryClient({
     mutations: {
       onError: (error: Error) => {
         const axiosError = error as AxiosError<ApiResponse<null>>;
-        const message =
-          axiosError.response?.data?.message || "An unexpected error occurred";
+        const message = axiosError.response?.data?.message || "An unexpected error occurred";
         toast.error(message);
       },
     },

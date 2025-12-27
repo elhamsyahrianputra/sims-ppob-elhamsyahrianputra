@@ -2,20 +2,7 @@ export function formatIndoDateTime(isoString: string): {
   date: string;
   time: string;
 } {
-  const month = [
-    "Januari",
-    "Februari",
-    "Maret",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Agustus",
-    "September",
-    "Oktober",
-    "November",
-    "Desember",
-  ];
+  const month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
   const dateObj = new Date(isoString);
   const date = dateObj.getDate();
   const monthStr = month[dateObj.getMonth()];

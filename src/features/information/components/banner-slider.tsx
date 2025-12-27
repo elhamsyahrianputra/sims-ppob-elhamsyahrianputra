@@ -32,11 +32,7 @@ export default function BannerSlider() {
       >
         {banners?.data?.map((banner) => (
           <SwiperSlide key={banner.banner_name}>
-            <img
-              alt={banner.banner_name}
-              className="h-full w-full object-cover"
-              src={banner.banner_image}
-            />
+            <img alt={banner.banner_name} className="h-full w-full object-cover" src={banner.banner_image} />
           </SwiperSlide>
         ))}
       </Swiper>

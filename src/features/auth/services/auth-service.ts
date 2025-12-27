@@ -5,18 +5,12 @@ import type { LoginResponse } from "../types/auth.types";
 
 export const authService = {
   login: async (request: LoginRequest) => {
-    const response = await apiClient.post<ApiResponse<LoginResponse>>(
-      "/login",
-      request,
-    );
+    const response = await apiClient.post<ApiResponse<LoginResponse>>("/login", request);
     return response.data;
   },
 
   register: async (request: RegisterRequest) => {
-    const response = await apiClient.post<ApiResponse<null>>(
-      "/registration",
-      request,
-    );
+    const response = await apiClient.post<ApiResponse<null>>("/registration", request);
     return response.data;
   },
 };

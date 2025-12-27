@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { usePageTitle } from "../../../core/hooks/use-page-title";
 import { formatIndoDateTime } from "../../../core/utils/format-date";
 import { formatRupiah } from "../../../core/utils/format-rupiah";
 import { useHistories } from "../hooks/use-history";
 import type { Record } from "../types/history.types";
 
 export default function HistoryPage() {
+  usePageTitle({ title: "Transaksi" });
   const [offset, setOffset] = useState(0);
   const [limit] = useState(5);
   const [allRecords, setAllRecords] = useState<Record[]>([]);
@@ -17,10 +19,7 @@ export default function HistoryPage() {
       const records = histories.data.records;
 
       setAllRecords((prev) => {
-        const newRecords = records.filter(
-          (record) =>
-            !prev.some((p) => p.invoice_number === record.invoice_number),
-        );
+        const newRecords = records.filter((record) => !prev.some((p) => p.invoice_number === record.invoice_number));
         return [...prev, ...newRecords];
       });
 
@@ -63,9 +62,7 @@ export default function HistoryPage() {
 
                   <div className="flex gap-x-4 text-gray-400 text-xs">
                     {(() => {
-                      const { date, time } = formatIndoDateTime(
-                        record.created_on,
-                      );
+                      const { date, time } = formatIndoDateTime(record.created_on);
                       return (
                         <>
                           <span>{date}</span>
@@ -83,12 +80,7 @@ export default function HistoryPage() {
       </div>
       {hasMore && (
         <div className="mt-4 flex justify-center">
-          <button
-            className="cursor-pointer font-semibold text-primary/75 transition-opacity duration-300 ease-in-out hover:opacity-65 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={false}
-            onClick={handleShowMore}
-            type="button"
-          >
+          <button className="cursor-pointer font-semibold text-primary/75 transition-opacity duration-300 ease-in-out hover:opacity-65 disabled:cursor-not-allowed disabled:opacity-40" disabled={false} onClick={handleShowMore} type="button">
             Show more
           </button>
         </div>
